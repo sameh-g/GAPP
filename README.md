@@ -1,6 +1,6 @@
 # They Worked 
 
-This Project is gonna be a template using the following Items: 
+This Project is a fullstack applicaiton with the below items..
 ## FrontEnd
    React
    ,React-Redux
