@@ -13,7 +13,7 @@ app.engine('jsx', require('express-react-views').createEngine());
 
 app.get('/', function(req, res) {
   const data = readData();
-  res.render('index', { title: "They Rejected Us.", stories: data.stories.reverse() });
+  res.render('index', { title: "They Worked with Us.", stories: data.stories.reverse() });
 });
 
 app.get('/feed.xml', function(req, res) {
