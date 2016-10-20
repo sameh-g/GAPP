@@ -40,6 +40,8 @@ var DefaultLayout = React.createClass({
             <h1 className="title">Check My Story.</h1>
             <div>You can add your story here below  </div>
             <div>To add your own, please <a href="#">Add Me</a> or add <a href="#">here</a></div>
+         
+         
           </header>
           <div className="grid text-center Rejections"><div className="grid-sizer Rejection"></div><div className="gutter-sizer"></div>{this.props.children}</div>
           <script src="/js/masonry.js"></script>

@@ -1,5 +1,3 @@
-import ReactStars from 'react-stars'
-import StarRatingComponent from 'react-star-rating-component';
 
 var React = require('react');
 var DefaultLayout = require('./default');
