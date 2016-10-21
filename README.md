@@ -12,3 +12,10 @@ This Project is a fullstack applicaiton with the below items..
 ## Authentication 
    Facebook,Google
 
+ ##  WebPack Config 
+  *  npm install css-loader style-loader
+  * webpack-dev-server --progress --colors    
+  * webpack --progress --colors --watch    
+  * webpack --progress --colors     
+  * webpack ./entry.js bundle.js --module-bind "css=style!css"
+

@@ -1,4 +1,3 @@
-
 var React = require('react');
 var DefaultLayout = require('./default');
 
@@ -7,7 +6,7 @@ var Rejections = React.createClass({
   render: function() {
     var rejections = this.props.stories.map(function(story) {
       return (
-        
+   
         <div className={(story.double) ? 'grid-item Rejection Rejection--width2' : 'grid-item Rejection'}>
           <div className="Rejection-Title">
             <h4 className="Rejection-Title--FullName">
@@ -27,7 +26,7 @@ var Rejections = React.createClass({
     });
 
     return (
-      <DefaultLayout title={this.props.title}>{rejections}</DefaultLayout>
+       <DefaultLayout title={this.props.title}>{rejections}</DefaultLayout>
     )
   }
 });
