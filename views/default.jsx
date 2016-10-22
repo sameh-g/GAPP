@@ -1,6 +1,12 @@
 var React = require('react');
+// var $     = require('jquery');
 
 var DefaultLayout = React.createClass({
+click:function(e)
+{
+  alert('test')
+},
+
   render: function() {
     var githubStyle = {
       fill: "#151513",
@@ -14,6 +20,15 @@ var DefaultLayout = React.createClass({
     var githubStyle2 = {
       transformOrigin: "130px 106px"
     };
+    var modalStyle =
+    {
+      width:'400px',
+      height:'400px',
+      position: 'fixed',
+      margin:'auto' 
+    };
+
+  
     return (
       <html>
         <head>
@@ -24,7 +39,8 @@ var DefaultLayout = React.createClass({
           <meta name="description" content="List of great programmers and companies they were rejected by."></meta>
           <meta name="author" content="Jon Kuperman"></meta>
           <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>       
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
           <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"></link>
           <link rel="stylesheet" type="text/css" href="/css/style.css"></link>
         </head>
@@ -39,14 +55,31 @@ var DefaultLayout = React.createClass({
           <header className="text-center">
             <h1 className="title">Check My Story.</h1>
             <div>You can add your story here below  </div>
-            <div>To add your own, please <a href="#">Add Me</a> or add <a href="#">here</a></div>
-         
-         
+            <div>To add your own, please <a href="#" data-toggle="modal" data-target="#myModal">Add Me</a> or add <a href="#">here</a></div>  
+
           </header>
           <div className="grid text-center Rejections"><div className="grid-sizer Rejection"></div><div className="gutter-sizer"></div>{this.props.children}</div>
           <script src="/js/masonry.js"></script>
           <script src="/js/script.js"></script> 
           <script src="/js/googleAnalytics.js"></script>
+
+  <div className="modal fade" id='myModal' tabindex="-1" role="dialog">
+  <div className="modal-dialog" role="document">
+    <div className="modal-content">
+      <div className="modal-header">
+        <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 className="modal-title">Your Story</h4>
+      </div>
+      <div className="modal-body">
+        <p>ur data </p>
+      </div>
+      <div className="modal-footer">
+        <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" className="btn btn-primary" onClick={this.click}>Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
         </body>
       </html>
     );
