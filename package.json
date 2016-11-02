@@ -1,10 +1,11 @@
 {
-  "name": "rejected.us",
+  "name": "theyworked",
   "version": "1.0.0",
   "description": "Everyone’s been rejected - these are our stories",
   "main": "server.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+     "start":"node server.js"
   },
   "repository": {
     "type": "git",

@@ -2,11 +2,6 @@ var React = require('react');
 // var $     = require('jquery');
 
 var DefaultLayout = React.createClass({
-click:function(e)
-{
-  alert('test')
-},
-
   render: function() {
     var githubStyle = {
       fill: "#151513",
@@ -28,8 +23,7 @@ click:function(e)
       margin:'auto' 
     };
 
-  
-    return (
+    return (      
       <html>
         <head>
           <meta charSet="utf-8"></meta>
@@ -39,12 +33,15 @@ click:function(e)
           <meta name="description" content="List of great programmers and companies they were rejected by."></meta>
           <meta name="author" content="Jon Kuperman"></meta>
           <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>       
           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
           <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"></link>
           <link rel="stylesheet" type="text/css" href="/css/style.css"></link>
-        </head>
-        <body>
+        
+          </head>
+          <body>
+
           {/* // <a href="https://github.com/jkup/rejected.us" className="github-corner">
           //   <svg width="80" height="80" viewBox="0 0 250 250" style={githubStyle}>
           //     <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -52,6 +49,7 @@ click:function(e)
           //     <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" className="octo-body"></path>
           //   </svg>
           // </a>*/}
+
           <header className="text-center">
             <h1 className="title">Check My Story.</h1>
             <div>You can add your story here below  </div>
@@ -63,7 +61,7 @@ click:function(e)
           <script src="/js/script.js"></script> 
           <script src="/js/googleAnalytics.js"></script>
 
-  <div className="modal fade" id='myModal' tabindex="-1" role="dialog">
+  <div className="modal fade" id='myModal' role="dialog">
   <div className="modal-dialog" role="document">
     <div className="modal-content">
       <div className="modal-header">
@@ -71,11 +69,25 @@ click:function(e)
         <h4 className="modal-title">Your Story</h4>
       </div>
       <div className="modal-body">
-        <p>ur data </p>
+  <div className="form-group">
+            <label for="recipient-name" className="control-label">Name:</label>
+            <input type="text" className="form-control" id="recipient-name"></input>
+          </div>
+           <div className="form-group">
+            <label for="recipient-name" className="control-label">Company:</label>
+            <input type="text" className="form-control" id="Company-name"></input>
+          </div>
+<div>
+         
+            <label for="message-text" className="control-label">Note:</label>
+            <textarea className="form-control" id="message-text"></textarea>
+          </div>
       </div>
       <div className="modal-footer">
+      
         <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" className="btn btn-primary" onClick={this.click}>Save changes</button>
+        <button type="button" className="btn btn-primary" onClick={this.clickHandler('ll')}>Save changes</button>
+
       </div>
     </div>
   </div>
@@ -83,7 +95,12 @@ click:function(e)
         </body>
       </html>
     );
-  }
+  },
+    clickHandler: function(text, e) 
+    {  
+    console.log(text)
+    }   
+
 });
 
 module.exports = DefaultLayout;

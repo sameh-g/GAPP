@@ -343,6 +343,15 @@
       "double": true
     },
     {
+      "fullName": "sherif Amgad",
+      "handle": "Sherif",
+      "website": "",
+      "bio": "Domo",
+      "avatar": "sherif.JPG",
+      "story": "I totally bombed an interview at Trello about implementing linked lists in JavaScript. Today I’m a JS Architect at Domo.",
+      "double": false
+    },
+    {
       "fullName": "Dave Geddes",
       "handle": "geddski",
       "website": "https://twitter.com/geddski",

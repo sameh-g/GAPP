@@ -4,32 +4,32 @@ var app = express();
 var RSS = require('rss');
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/weworked');
+// mongoose.connect('mongodb://localhost/weworked');
 
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
+// var db = mongoose.connection;
+// db.on('error', console.error.bind(console, 'connection error:'));
+// db.once('open', function() {
 
-console.log('mongo connected')
+// console.log('mongo connected')
 
-  db.collection("stories", function(err, collection){
-        collection.find({}).toArray(function(err, data){
-            console.log(data); // it will print your collection data
-        })
-          });
-});
+//   db.collection("stories", function(err, collection){
+//         collection.find({}).toArray(function(err, data){
+//             console.log(data); // it will print your collection data
+//         })
+//           });
+// });
 
-var Schema = mongoose.Schema;
+// var Schema = mongoose.Schema;
 
-// define a schema
-var storiesSchema = new Schema({ fullName: String, handle: String });
+// // define a schema
+// var storiesSchema = new Schema({ fullName: String, handle: String });
 
-var story = mongoose.model('stories', storiesSchema);
+// var story = mongoose.model('stories', storiesSchema);
 
-story.find(function (err, dogs) {
-  if (err) return console.error(err);
-  console.log(dogs);
-})
+// story.find(function (err, dogs) {
+//   if (err) return console.error(err);
+//   console.log(dogs);
+// })
 
 
 
@@ -82,12 +82,9 @@ function createFeed(data) {
 }
 
 function readData() {
-
-
-
   return JSON.parse(fs.readFileSync('data/data.json', 'utf8'));
 }
 
-var server = app.listen(8080, function () {
-  console.log('Listening at http://localhost:8080');
+var server = app.listen(5090, function () {
+  console.log('Listening at http://localhost:5090');
 });
