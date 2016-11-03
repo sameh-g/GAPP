@@ -4,28 +4,37 @@ var app = express();
 var RSS = require('rss');
 
 var mongoose = require('mongoose');
-// mongoose.connect('mongodb://localhost/weworked');
+var Schema = mongoose.Schema;
 
-// var db = mongoose.connection;
+ mongoose.connect('mongodb://localhost/weworked');
+ 
+mongoose.model('stories', new Schema({ fullName: String, 
+  handle: String, website: String ,
+  bio: String, avatar: String ,
+  story: String, double: String 
+
+}));
+
+
+
 // db.on('error', console.error.bind(console, 'connection error:'));
-// db.once('open', function() {
-
 // console.log('mongo connected')
 
-//   db.collection("stories", function(err, collection){
-//         collection.find({}).toArray(function(err, data){
-//             console.log(data); // it will print your collection data
+//     db.collection("stories", function(err, collection){
+//        collection.find({}).toArray(function(err, data){
+//        console.log(data); // it will print your collection data
 //         })
-//           });
+//         });
+
+
 // });
 
-// var Schema = mongoose.Schema;
 
+
+// var Schema = mongoose.Schema;
 // // define a schema
 // var storiesSchema = new Schema({ fullName: String, handle: String });
-
-// var story = mongoose.model('stories', storiesSchema);
-
+// var story = mongoose.model('stories', storiesSchema)
 // story.find(function (err, dogs) {
 //   if (err) return console.error(err);
 //   console.log(dogs);
@@ -45,7 +54,8 @@ app.engine('jsx', require('express-react-views').createEngine());
 
 app.get('/', function(req, res) {
   const data = readData();
-  res.render('index', { title: "They Worked with Us.", stories: data.stories.reverse() });
+  console.log('data',data)
+  res.render('index', { title: "They Worked with Us.", stories: data.reverse() });
 });
 
 app.get('/feed.xml', function(req, res) {
@@ -81,8 +91,33 @@ function createFeed(data) {
   return feed;
 }
 
-function readData() {
-  return JSON.parse(fs.readFileSync('data/data.json', 'utf8'));
+function _callBack(data)
+{
+  console.log('_callBack',data)
+  return JSON.stringify(data);
+
+}
+
+function callback(data) {    
+return data;    
+ }
+
+
+function readData(callback) 
+
+{
+
+var _data ;
+var stories = mongoose.model('stories');
+    stories.find({}, function(err, data) {
+
+// console.log( JSON.stringify(data));
+callback(JSON.stringify(data));
+
+});
+
+
+  // return JSON.parse(fs.readFileSync('data/data.json', 'utf8'));
 }
 
 var server = app.listen(5090, function () {
