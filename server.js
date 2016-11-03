@@ -53,9 +53,17 @@ app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
 
 app.get('/', function(req, res) {
-  const data = readData();
-  console.log('data',data)
-  res.render('index', { title: "They Worked with Us.", stories: data.reverse() });
+
+
+  var stories = mongoose.model('stories');
+   var data ;
+  stories.find({}, function(err, data) {
+
+    var _data=JSON.stringify(data);
+    _data=JSON.parse(_data);
+    console.log("DATA",_data)
+    res.render('index', { title: "They Worked with Us.", stories: _data.reverse() });
+});
 });
 
 app.get('/feed.xml', function(req, res) {
@@ -91,34 +99,34 @@ function createFeed(data) {
   return feed;
 }
 
-function _callBack(data)
-{
-  console.log('_callBack',data)
-  return JSON.stringify(data);
+// function _callBack(data)
+// {
+//   console.log('_callBack',data)
+//   return JSON.stringify(data);
 
-}
+// }
 
-function callback(data) {    
-return data;    
- }
-
-
-function readData(callback) 
-
-{
-
-var _data ;
-var stories = mongoose.model('stories');
-    stories.find({}, function(err, data) {
-
-// console.log( JSON.stringify(data));
-callback(JSON.stringify(data));
-
-});
+// function callback(data) {    
+// return data;    
+//  }
 
 
-  // return JSON.parse(fs.readFileSync('data/data.json', 'utf8'));
-}
+// function readData(callback) 
+
+// {
+
+// var _data ;
+// var stories = mongoose.model('stories');
+//     stories.find({}, function(err, data) {
+
+// // console.log( JSON.stringify(data));
+// callback(JSON.stringify(data));
+
+// });
+
+
+//   // return JSON.parse(fs.readFileSync('data/data.json', 'utf8'));
+// }
 
 var server = app.listen(5090, function () {
   console.log('Listening at http://localhost:5090');
