@@ -79,7 +79,7 @@
       "bio": "Open Table",
       "avatar": "tlhunter.jpg",
       "story": "A year and a half after being rejected by a popular payment gateway company I finally got my senior software title at a company where I write ES6 all day.",
-      "double": false
+      "double": true
     },
     {
       "fullName": "Nick Morgan",

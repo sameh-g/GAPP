@@ -1,7 +1,11 @@
 var React = require('react');
+import {fetch} from 'whatwg-fetch'
+
 // var $     = require('jquery');
 
 var DefaultLayout = React.createClass({
+
+
   render: function() {
     var githubStyle = {
       fill: "#151513",
@@ -60,7 +64,7 @@ var DefaultLayout = React.createClass({
           <script src="/js/masonry.js"></script>
           <script src="/js/script.js"></script> 
           <script src="/js/googleAnalytics.js"></script>
-
+  <form >
   <div className="modal fade" id='myModal' role="dialog">
   <div className="modal-dialog" role="document">
     <div className="modal-content">
@@ -70,36 +74,43 @@ var DefaultLayout = React.createClass({
       </div>
       <div className="modal-body">
   <div className="form-group">
-            <label for="recipient-name" className="control-label">Name:</label>
+            <label for="recipient-name" className="control-label">Full Name:</label>
+            <input type="text" className="form-control" id="recipient-name"></input>
+          </div>
+            <div className="form-group">
+            <label for="recipient-name" className="control-label">WebSite:</label>
             <input type="text" className="form-control" id="recipient-name"></input>
           </div>
            <div className="form-group">
-            <label for="recipient-name" className="control-label">Company:</label>
+            <label for="recipient-name" className="control-label">Bio:</label>
             <input type="text" className="form-control" id="Company-name"></input>
           </div>
 <div>
          
-            <label for="message-text" className="control-label">Note:</label>
+            <label for="message-text" className="control-label">Story:</label>
             <textarea className="form-control" id="message-text"></textarea>
           </div>
       </div>
       <div className="modal-footer">
       
         <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" className="btn btn-primary" onClick={this.clickHandler('ll')}>Save changes</button>
+        <button type="submit" className="btn btn-primary"onClick={this.handleSubmit}>Save changes</button>
 
       </div>
     </div>
   </div>
 </div>
+</form>
         </body>
       </html>
     );
   },
-    clickHandler: function(text, e) 
-    {  
-    console.log(text)
-    }   
+handleSubmit: function() {
+ console.log('handled')
+}
+
+  
+ 
 
 });
 
