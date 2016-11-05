@@ -1,10 +1,19 @@
 var React = require('react');
 import {fetch} from 'whatwg-fetch'
 
-// var $     = require('jquery');
+var onButtonClick = function () {
+
+    //call alertMessage method from the reference of a React Element! Something like HelloElement.alertMessage()
+    console.log("clicked!");
+}
 
 var DefaultLayout = React.createClass({
-
+ componentDidMount() {
+    console.log('did mount')
+  },
+ handleSubmit: function() {
+ alert('handled')
+},
 
   render: function() {
     var githubStyle = {
@@ -64,7 +73,7 @@ var DefaultLayout = React.createClass({
           <script src="/js/masonry.js"></script>
           <script src="/js/script.js"></script> 
           <script src="/js/googleAnalytics.js"></script>
-  <form >
+
   <div className="modal fade" id='myModal' role="dialog">
   <div className="modal-dialog" role="document">
     <div className="modal-content">
@@ -94,20 +103,18 @@ var DefaultLayout = React.createClass({
       <div className="modal-footer">
       
         <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="submit" className="btn btn-primary"onClick={this.handleSubmit}>Save changes</button>
+        <button value="button" className="btn btn-primary" onclick='test()'>Save changes</button>
 
       </div>
     </div>
   </div>
 </div>
-</form>
+
         </body>
       </html>
     );
-  },
-handleSubmit: function() {
- console.log('handled')
-}
+  }
+
 
   
  

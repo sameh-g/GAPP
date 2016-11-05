@@ -4,3 +4,8 @@ var msnry = new Masonry( '.grid', {
   gutter: '.gutter-sizer',
   percentPosition: true
 });
+
+          var test=function()
+          {
+            alert('test')
+          }
