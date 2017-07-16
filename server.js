@@ -5,20 +5,18 @@ var RSS = require('rss');
 var bodyParser  = require('body-parser');
 var morgan      = require('morgan');
 var mongoose = require('mongoose');
- mongoose.connect('mongodb://localhost/weworked');
+mongoose.connect('mongodb://localhost/weworked');
 var Schema = mongoose.Schema;
-
+app.use(morgan('combined'))
 
  
 mongoose.model('stories', new Schema({ fullName: String, 
   handle: String, website: String ,
   bio: String, avatar: String ,
   story: String, double: String 
-
 }));
-  var stories = mongoose.model('stories');
 
-
+var stories = mongoose.model('stories');
 // Public directory for all static assets
 app.use(express.static('public'));
 
@@ -44,7 +42,6 @@ app.get('/', function(req, res)
     console.log("DATA",_data)
     res.render('index', { title: "They Worked with Us.", stories: _data.reverse() });
 });
-
 });
 
 //Delete All stories.. 
@@ -59,30 +56,26 @@ res.send('sucess');
 app.post('/AddStory', function(req, res) {
 
 console.log('AddStory Request fullname',req.param('fullname'));
+console.log('AddStory Request bio',req.param('bio'));
+
   stories.create(
     { fullName: req.param('fullname') ,
       handle: req.param('handle'), 
       website: req.param('website') ,
-      bio: req.param('fullname'), 
+      bio: req.param('bio'), 
       avatar:req.param('avatar') ,
       story: req.param('story'), 
       double:req.param('double')
-
-
-}
+    }
     , function (err, small) {
-  if (err) return handleError(err);
-  console.log('new Story saved')
+      if (err) return handleError(err);
+      console.log('new Story saved')
 })
-
-
-        res.send('posted successfuly');
-   
-
+   res.send('posted successfuly');
   });
 
 
 
-var server = app.listen(5090, function () {
-  console.log('Listening at http://localhost:5090');
+var server = app.listen(8888, function () {
+  console.log('Listening at http://localhost:8888');
 });
